@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next Starter Kit
 
-## Getting Started
+빠르게 웹 개발을 시작할 수 있도록 구성한 Next.js 모던 웹 스타터킷입니다.
 
-First, run the development server:
+## 기술 스택
+
+- [Next.js 16](https://nextjs.org) (App Router)
+- [React 19](https://react.dev) + [TypeScript](https://www.typescriptlang.org)
+- [Tailwind CSS v4](https://tailwindcss.com)
+- [shadcn/ui](https://ui.shadcn.com) (`base-nova` 스타일, [Base UI](https://base-ui.com) 기반)
+- [Zustand](https://zustand.docs.pmnd.rs) — 상태관리
+- [React Hook Form](https://react-hook-form.com) + [Zod](https://zod.dev) — 폼/검증
+- [next-themes](https://github.com/pacocoursey/next-themes) — 다크모드
+
+## 시작하기
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+[http://localhost:3000](http://localhost:3000)에서 결과를 확인할 수 있습니다.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 디렉토리 구조
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+app/                    # App Router 라우트
+  examples/counter/      # zustand 카운터 예제 페이지
+  examples/contact-form/ # react-hook-form + zod 폼 예제 페이지
+components/
+  ui/                    # shadcn/ui 컴포넌트
+  layout/                # Header, Footer 등 공통 레이아웃
+  examples/               # 예제 데모 컴포넌트
+  theme-provider.tsx      # next-themes Provider
+  theme-toggle.tsx         # 다크모드 토글 버튼
+lib/
+  stores/                 # zustand 스토어
+  validations/            # zod 스키마
+  utils.ts                # cn 유틸
+```
 
-## Learn More
+## 포함된 기능
 
-To learn more about Next.js, take a look at the following resources:
+- **다크모드**: 헤더의 토글 버튼으로 라이트/다크/시스템 테마를 전환할 수 있습니다.
+- **상태관리 예제**: `/examples/counter`에서 zustand 스토어 사용법을 확인할 수 있습니다.
+- **폼 검증 예제**: `/examples/contact-form`에서 react-hook-form + zod 조합의 폼 검증을 확인할 수 있습니다.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## shadcn/ui 컴포넌트 추가하기
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+npx shadcn@latest add <component>
+```
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+이 프로젝트는 `base-nova` 스타일(Base UI 기반)을 사용하므로, 새 컴포넌트를 추가한 뒤 `components/ui/button.tsx`와 동일하게 `@base-ui/react`와 `cn` 유틸을 사용하는지 확인하세요.
