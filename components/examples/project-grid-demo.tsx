@@ -23,18 +23,18 @@ const DEMO_PROJECTS: Project[] = [
     tags: ["MDX", "shadcn/ui"],
   },
   {
-    title: "대시보드 UI 실험",
-    description: "이미지 없이 태그만으로 구성한 카드 예시입니다.",
-    href: "#",
-    tags: ["Zustand", "Chart"],
-  },
-  {
     title: "회사 소개 페이지",
     description: "태그 없이 이미지와 설명만으로 구성한 카드 예시입니다.",
     href: "#",
     imageUrl:
       "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&h=400&fit=crop",
     imageAlt: "회사 소개 페이지 목업 이미지",
+  },
+  {
+    title: "대시보드 UI 실험",
+    description: "이미지 없이 태그만으로 구성한 카드 예시입니다.",
+    href: "#",
+    tags: ["Zustand", "Chart"],
   },
   {
     title: "GitHub 저장소",
