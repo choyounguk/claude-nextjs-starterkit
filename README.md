@@ -25,11 +25,15 @@ npm run dev
 
 ```
 app/                    # App Router 라우트
-  examples/counter/      # zustand 카운터 예제 페이지
-  examples/contact-form/ # react-hook-form + zod 폼 예제 페이지
+  examples/counter/       # zustand 카운터 예제 페이지
+  examples/contact-form/  # react-hook-form + zod 폼 예제 페이지
+  examples/project-grid/  # 프로젝트 카드/그리드 예제 페이지
+  not-found.tsx           # 커스텀 404 페이지
+  error.tsx                # 커스텀 에러 페이지
 components/
   ui/                    # shadcn/ui 컴포넌트
   layout/                # Header, Footer 등 공통 레이아웃
+  sections/               # 페이지 조립용 섹션 컴포넌트 (ProjectCard/ProjectGrid 등)
   examples/               # 예제 데모 컴포넌트
   theme-provider.tsx      # next-themes Provider
   theme-toggle.tsx         # 다크모드 토글 버튼
@@ -42,8 +46,12 @@ lib/
 ## 포함된 기능
 
 - **다크모드**: 헤더의 토글 버튼으로 라이트/다크/시스템 테마를 전환할 수 있습니다.
+- **모바일 반응형 네비게이션**: 좁은 화면에서는 헤더가 Sheet 기반 햄버거 메뉴로 전환됩니다.
+- **Toast 알림**: `/examples/contact-form`에서 폼 제출 성공 시 toast로 피드백을 확인할 수 있습니다.
+- **404 / 에러 페이지**: 존재하지 않는 경로에 접근하면 커스텀 404 페이지가, 렌더링 중 오류가 발생하면 커스텀 에러 화면이 표시됩니다.
 - **상태관리 예제**: `/examples/counter`에서 zustand 스토어 사용법을 확인할 수 있습니다.
 - **폼 검증 예제**: `/examples/contact-form`에서 react-hook-form + zod 조합의 폼 검증을 확인할 수 있습니다.
+- **프로젝트 카드 그리드**: `/examples/project-grid`에서 포트폴리오에 바로 재사용할 수 있는 ProjectCard/ProjectGrid 컴포넌트를 확인할 수 있습니다.
 
 ## shadcn/ui 컴포넌트 추가하기
 

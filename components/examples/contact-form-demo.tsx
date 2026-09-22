@@ -1,6 +1,5 @@
 "use client"
 
-import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 
@@ -14,13 +13,13 @@ import {
 } from "@/components/ui/card"
 import {
   Field,
-  FieldDescription,
   FieldError,
   FieldGroup,
   FieldLabel,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { toast } from "@/components/ui/toast"
 import {
   contactFormSchema,
   type ContactFormValues,
@@ -28,9 +27,6 @@ import {
 
 // react-hook-form + zod 검증을 사용하는 연락처 폼 데모
 export function ContactFormDemo() {
-  const [submittedValues, setSubmittedValues] =
-    useState<ContactFormValues | null>(null)
-
   const {
     register,
     handleSubmit,
@@ -42,7 +38,11 @@ export function ContactFormDemo() {
   })
 
   const onSubmit = (values: ContactFormValues) => {
-    setSubmittedValues(values)
+    toast.add({
+      title: "메시지가 제출되었습니다",
+      description: `${values.name}님, 문의해주셔서 감사합니다.`,
+      type: "success",
+    })
     reset()
   }
 
@@ -86,11 +86,6 @@ export function ContactFormDemo() {
             <Button type="submit" disabled={isSubmitting}>
               보내기
             </Button>
-            {submittedValues && (
-              <FieldDescription className="text-foreground">
-                {submittedValues.name}님, 메시지가 제출되었습니다.
-              </FieldDescription>
-            )}
           </FieldGroup>
         </form>
       </CardContent>
